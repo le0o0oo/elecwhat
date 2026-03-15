@@ -63,7 +63,9 @@ function setAutostart(enabled) {
 
   const quoteArg = (arg) => `"${String(arg).replaceAll('"', '\\"')}"`;
   const appRoot = path.resolve(import.meta.dirname, "..");
-  const execParts = app.isPackaged ? [app.getPath("exe"), "--hide"] : [app.getPath("exe"), appRoot, "--hide"];
+  const execParts = app.isPackaged
+    ? [app.getPath("exe"), "--hide", "--autostart"]
+    : [app.getPath("exe"), appRoot, "--hide", "--autostart"];
   const exec = execParts.map(quoteArg).join(" ");
   const desktopEntry = [
     "[Desktop Entry]",
@@ -81,6 +83,7 @@ function setAutostart(enabled) {
 function main() {
   const config = new JsonConfig(path.join(app.getPath("userData"), "config.json"));
   const startHidden = process.argv.includes("--hide");
+  const startFromAutostart = process.argv.includes("--autostart");
 
   // Configure log level: CLI option takes priority over config option
   const cliLogLevel = process.argv.find((arg) => arg.startsWith("--log-level="))?.split("=")[1];
@@ -414,8 +417,12 @@ function main() {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   app.whenReady().then(async () => {
-    console.log("Autostart", config.get("autostart", false));
-    setAutostart(config.get("autostart", false));
+    const autostartEnabled = config.get("autostart", false);
+    setAutostart(autostartEnabled);
+    if (startFromAutostart && !autostartEnabled) {
+      app.quit();
+      return;
+    }
     let window = await createWindow();
 
     // Check if app was launched with a whatsapp: URL scheme
