@@ -1,4 +1,4 @@
-import { app, BrowserWindow, session, Menu, Tray, ipcMain, shell, Notification, dialog, nativeImage } from "electron";
+import { app, BrowserWindow, session, Menu, Tray, ipcMain, shell, Notification, dialog } from "electron";
 import { readFileSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import {
@@ -257,19 +257,8 @@ function main() {
         toggleVisibility(mainWindow);
       });
 
-      const trayIconPath = getUserIcon("app", state) || path.join(import.meta.dirname, "..", "static", "app.png");
-      let trayImage = nativeImage.createFromPath(trayIconPath);
-      if (trayImage.isEmpty()) {
-        const fallbackPath = path.join(import.meta.dirname, "..", "static", "app-512.png");
-        const fallbackImage = nativeImage.createFromPath(fallbackPath);
-        if (!fallbackImage.isEmpty()) {
-          trayImage = fallbackImage;
-        } else {
-          consola.warn("Failed to load tray icon", { trayIconPath, fallbackPath });
-          trayImage = nativeImage.createEmpty();
-        }
-      }
-      const tray = new Tray(trayImage);
+      const trayIcon = getUserIcon("app", state) || path.join(import.meta.dirname, "..", "static", "app.png");
+      const tray = new Tray(trayIcon);
       const trayContextMenu = Menu.buildFromTemplate([
         {
           label: translations?.show_hide ?? "Show/Hide",
