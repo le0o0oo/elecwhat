@@ -220,7 +220,7 @@ function main() {
       app.isQuiting = true;
     });
 
-    {
+    app.whenReady().then(() => {
       if (config.parseError) {
         const res = dialog.showMessageBoxSync({
           type: "error",
@@ -389,7 +389,7 @@ function main() {
       } else {
         mainWindow.webContents.loadURL(url);
       }
-    }
+    });
 
     return mainWindow;
   };
