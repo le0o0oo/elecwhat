@@ -5,21 +5,21 @@
 </p>
 
 ## Features
-
-- Desktop notifications
-- Tray icon with unread count (aka AppIndicator), [custom tray icons](https://github.com/piec/elecwhat/issues/30#issuecomment-3470456738).
-- Custom keyboard shortcuts ([default](https://github.com/piec/elecwhat/blob/master/src/keys.mjs))
-- Custom CSS
-- Spellcheck
-- CLI & D-Bus interface to show/hide/toggle window
-- Dock unread count badge
-- Very stable, I have been running it for 1+ year without crash/freeze
-- Can be trusted:
-  - Code easy to review - ~800 lines of code currently
-  - Automatically built by GitHub Actions (CI)
-- Preserve window position
-- Custom user scripts in `~/.config/elecwhat/user-scripts/*.js`
-- Custom tray icons in `~/.config/elecwhat/user-icons/*.png` by default
+* Desktop notifications
+* Calls / Videos calls working (you need to join WhatsApp Web Beta)
+* Tray icon with unread count (aka AppIndicator), [custom tray icons](https://github.com/piec/elecwhat/issues/30#issuecomment-3470456738).
+* Custom keyboard shortcuts ([default](https://github.com/piec/elecwhat/blob/master/src/keys.mjs))
+* Custom CSS
+* Spellcheck
+* CLI & D-Bus interface to show/hide/toggle window
+* Dock unread count badge
+* Very stable, I have been running it for 1+ year without crash/freeze
+* Can be trusted:
+  * Code easy to review - ~800 lines of code currently
+  * Automatically built by GitHub Actions (CI)
+* Preserve window position
+* Custom user scripts in `~/.config/elecwhat/user-scripts/*.js`
+* Custom tray icons in `~/.config/elecwhat/user-icons/*.png` by default
 
 ## Why?
 
