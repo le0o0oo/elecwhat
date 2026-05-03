@@ -1,5 +1,4 @@
 # ElecWhat - Simple desktop WhatsApp client for Linux
-
 <p align="center">
 <img width="400" alt="elecwhat" src="https://github.com/user-attachments/assets/3a352d5b-04a8-4e90-a063-330b706d096c" />
 </p>
@@ -22,7 +21,6 @@
 * Custom tray icons in `~/.config/elecwhat/user-icons/*.png` by default
 
 ## Why?
-
 I created this client after due to recurrent stability issues with other linux clients.
 Also I just wanted a simple and stable client and thought it could be done without much code with electron.
 
@@ -31,36 +29,32 @@ Also I just wanted a simple and stable client and thought it could be done witho
 If you use Gnome, I recommend using this [AppIndicator] extension in order to show tray icons
 
 ### Ubuntu/Kubuntu:
-
-- [Snap](https://snapcraft.io/elecwhat)
-- **or** [Buildkite deb] with `--no-sandbox` because of [issue]
-- **or** .deb file in [Releases] with `--no-sandbox` because of [issue]
-- **or** AppImage in [Releases] with `--no-sandbox` because of [issue]
+* [Snap](https://snapcraft.io/elecwhat)
+* **or** [Buildkite deb] with `--no-sandbox` because of [issue]
+* **or** .deb file in [Releases] with `--no-sandbox` because of [issue]
+* **or** AppImage in [Releases] with `--no-sandbox` because of [issue]
 
 ### Arch Linux:
-
-- [AUR package]: `yay -S elecwhat-bin`
-- **or** Pacman package in [Releases]
-- **or** AppImage in [Releases]
+* [AUR package]: `yay -S elecwhat-bin`
+* **or** Pacman package in [Releases]
+* **or** AppImage in [Releases]
 
 ### Debian:
-
-- [Buildkite deb]
-- **or** .deb file in [Releases]
-- **or** AppImage in [Releases]
+* [Buildkite deb]
+* **or** .deb file in [Releases]
+* **or** AppImage in [Releases]
 
 ### Fedora:
-
-- [Buildkite rpm]
-- **or** rpm file in [Releases]
-- **or** AppImage in [Releases]
+* [Buildkite rpm]
+* **or** rpm file in [Releases]
+* **or** AppImage in [Releases]
 
 ## Configuration
+
 
 `~/.config/elecwhat/config.json`:
 
 (or for snap: `~/snap/elecwhat/current/.config/elecwhat/config.json`)
-
 ```
 {
   "log-level": "info",
@@ -106,16 +100,15 @@ If you use Gnome, I recommend using this [AppIndicator] extension in order to sh
 ## Custom icons
 
 The naming scheme is based on WhatsApp Web favicon urls:
+* `~/.config/elecwhat/user-icons/app.png` during startup
+* `~/.config/elecwhat/user-icons/favicon.png` when there is no unread
+* `~/.config/elecwhat/user-icons/f01.png` where fXX.png is the number of unread
 
-- `~/.config/elecwhat/user-icons/app.png` during startup
-- `~/.config/elecwhat/user-icons/favicon.png` when there is no unread
-- `~/.config/elecwhat/user-icons/f01.png` where fXX.png is the number of unread
 
 ## Not planed
-
-- Multi account
-- Complex features
-- Other OS support, official apps already exist. Porting would probably be easy though thanks to electron.
+* Multi account
+* Complex features
+* Other OS support, official apps already exist. Porting would probably be easy though thanks to electron.
 
 [Buildkite deb]: https://buildkite.com/organizations/piec/packages/registries/elecwhat-deb
 [Buildkite rpm]: https://buildkite.com/organizations/piec/packages/registries/elecwhat-rpm
